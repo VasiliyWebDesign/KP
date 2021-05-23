@@ -1,0 +1,19 @@
+{
+  "name": "3-4",
+  "version": "1.0.0",
+  "main": "index.js",
+  "license": "MIT",
+  "scripts": {
+    "trans": "babel index.js -o ./src/index.js",
+    "start": "node ./src/index.js",
+    "build": "babel ./src -d ./lib"
+  },
+  "devDependencies": {
+    "babel-cli": "^6.26.0",
+    "babel-plugin-transform-class-properties": "^6.24.1",
+    "babel-preset-env": "^1.7.0"
+  },
+  "dependencies": {
+    "moment": "^2.29.1"
+  }
+}
