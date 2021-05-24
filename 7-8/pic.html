@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html>
+ <head>
+  <title>Canvas</title><meta charset="utf-8">
+ </head>
+ <body>
+  <script>
+      function makeCanvas(x, y) {
+        const canvas = document.createElement('canvas'),
+              ctx = canvas.getContext('2d');
+        canvas.setAttribute('width', x);
+        canvas.setAttribute('height', y);
+        return { canvas, ctx };
+      }
+
+      const { canvas, ctx } = makeCanvas(300, 120);
+      document.body.appendChild(canvas);
+
+      ctx.lineWidth = 2;
+      ctx.strokeStyle = 'black';
+
+
+      ctx.setTransform(0, 1, -1, 0, 110, 0);
+
+      // буква "Т"
+      ctx.beginPath()
+      ctx.moveTo(60, 80);
+      ctx.lineTo(60, 40);
+      ctx.lineTo(45, 40);
+      ctx.lineTo(75, 40);
+
+
+      const makeDot = (x, y) => ctx.strokeRect(x, y, 2, 2);
+
+      makeDot(69, 78);
+
+      // буква "Г"
+      ctx.moveTo(85, 80);
+      ctx.lineTo(85, 40);
+      ctx.lineTo(105, 40);
+
+      ctx.stroke();
+
+      makeDot(95, 78);
+
+      ctx.closePath()
+
+
+      ctx.strokeStyle = 'green';
+      ctx.beginPath()
+      ctx.moveTo(40, 85);
+      ctx.bezierCurveTo(65.5, 110, 85.5, 110, 111, 85)
+      ctx.stroke();
+      ctx.closePath();
+   </script>
+ </body>
+</html>
