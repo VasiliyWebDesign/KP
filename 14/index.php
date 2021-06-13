@@ -8,7 +8,7 @@
         $r = array_map(function($x){return htmlentities($x);},
             [
                 $_POST['name'] ?? 'Unknown',
-                $_POST['email'] ?? 'anon',
+                $_POST['email'] ?? 'Anon',
                 $_POST['text'] ?? 'Пусто'
             ]
         );
@@ -22,7 +22,7 @@
             $log = fopen('log.txt', 'a'); fwrite($log, $conn -> lastInsertId());
             fwrite($log, "\n"); fclose($log);
         } else {
-            $i = '<h4>Что-то не так!</h4>';
+            $i = '<h4>Ошибка</h4>';
         }
         echo $i;
     }
