@@ -7,9 +7,9 @@
     if ($_SERVER['REQUEST_METHOD'] === 'POST') {
         $r = array_map(function($x){return htmlentities($x);},
             [
-                $_POST['name'] ?? 'Unknown user',
-                $_POST['email'] ?? 'anon@mail.ru',
-                $_POST['text'] ?? 'Пустое сообщение'
+                $_POST['name'] ?? 'Unknown',
+                $_POST['email'] ?? 'anon',
+                $_POST['text'] ?? 'Пусто'
             ]
         );
         $sql = "INSERT INTO `reviews` (`name`, `email`, `text`) VALUES (?, ?, ?);";
@@ -18,7 +18,7 @@
         if ($result) {
             $f = '<style>.right {width: 60%; margin-left: 35%; zoom: 80%}</style>';
             $f .= '<div class="right"><h2>Добавить ещё один отзыв</h2></div>';
-            $i = '<h3>Данные успешно добавлены, спасибо!</h3>';
+            $i = '<h3>Данные успешно добавлены</h3>';
             $log = fopen('log.txt', 'a'); fwrite($log, $conn -> lastInsertId());
             fwrite($log, "\n"); fclose($log);
         } else {
